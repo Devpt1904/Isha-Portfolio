@@ -1,12 +1,11 @@
 import { ProfileCard } from "@/components/about/profile-card";
-import { EducationTimeline } from "@/components/about/timelines/education-timeline";
-import { ExperienceTimelineSection } from "@/components/about/experience-timeline";
+import { JourneyTimeline } from "@/components/about/journey-timeline";
 import { Skills } from "@/components/about/skills";
 import { PageHeader } from "@/components/page-header";
 import { DATA } from "@/data";
 
 export default function AboutPage() {
-  const { education, profile } = DATA.about;
+  const { education, experience, profile } = DATA.about;
   const tech = DATA.about.technologies;
 
   return (
@@ -19,8 +18,7 @@ export default function AboutPage() {
         title={profile.title}
       />
 
-      <EducationTimeline education={education} />
-      <ExperienceTimelineSection />
+      <JourneyTimeline education={education} experience={experience} />
       <Skills tech={tech} />
     </section>
   );
