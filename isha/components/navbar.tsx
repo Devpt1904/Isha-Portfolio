@@ -15,7 +15,7 @@ import {
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 
-import { ThemeSwitcher } from "@/components/theme-switcher";
+// ThemeSwitcher removed: site is dark-only
 import { DATA } from "@/data";
 
 export const Navigation = () => {
@@ -32,33 +32,33 @@ export const Navigation = () => {
       maxWidth="xl"
       onMenuOpenChange={setIsMenuOpen}
     >
-      <NavbarContent className="flex justify-between items-center w-full">
-        <NavbarBrand>
-          <motion.div
-            animate={{ opacity: 1, x: 0 }}
-            initial={{ opacity: 0, x: -20 }}
-            transition={{ duration: 0.5 }}
+      {/* brand left (desktop), menu centered */}
+      <NavbarContent className="relative flex items-center w-full">
+        <motion.div
+          className="hidden sm:block absolute left-6"
+          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, x: -20 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Link
+            className="font-bold text-inherit text-xl bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent"
+            href="/"
+            onClick={() => setIsMenuOpen(false)}
           >
-            <Link
-              className="font-bold text-inherit text-xl bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent"
-              href="/"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Portfolio
-            </Link>
-          </motion.div>
-        </NavbarBrand>
+            Isha
+          </Link>
+        </motion.div>
 
-        <NavbarContent className="hidden sm:flex justify-center gap-6 flex-grow">
+        <div className="mx-auto hidden sm:flex justify-center gap-8">
           {menuItems.map((item, index) => (
             <NavbarItem key={item.name}>
               <motion.div
                 animate={{ opacity: 1, y: 0 }}
                 initial={{ opacity: 0, y: -10 }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
+                transition={{ delay: index * 0.08, duration: 0.45 }}
               >
                 <Link
-                  className={`flex items-center gap-2 transition-colors ${
+                  className={`flex items-center gap-2 transition-colors px-2 py-1 ${
                     pathname === item.href
                       ? "text-primary-500 font-semibold"
                       : "text-foreground hover:text-primary-500"
@@ -71,16 +71,22 @@ export const Navigation = () => {
               </motion.div>
             </NavbarItem>
           ))}
-        </NavbarContent>
+        </div>
 
-        <NavbarItem>
-          <ThemeSwitcher />
-        </NavbarItem>
-
-        <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden"
-        />
+        {/* mobile: show brand and toggle on small screens */}
+        <div className="sm:hidden flex items-center justify-between w-full px-4">
+          <Link
+            className="font-bold text-inherit text-lg bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent"
+            href="/"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Isha
+          </Link>
+          <NavbarMenuToggle
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            className="sm:hidden"
+          />
+        </div>
       </NavbarContent>
 
       {/* Mobile Menu */}

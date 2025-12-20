@@ -14,7 +14,6 @@ interface SkillsProps {
 
 export const Skills = ({ tech }: SkillsProps) => (
   <motion.div
-    className="mt-16 md:mt-24"
     initial={{ opacity: 0, y: 40 }}
     transition={{ duration: 0.4 }}
     viewport={{ once: true }}

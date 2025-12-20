@@ -77,7 +77,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <Providers
           themeProps={{
             attribute: "class",
-            defaultTheme: "dark",
+            forcedTheme: "dark",
+            enableSystem: false,
           }}
         >
           <StarsBackground>{content}</StarsBackground>
