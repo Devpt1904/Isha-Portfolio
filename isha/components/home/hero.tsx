@@ -68,18 +68,23 @@ export const HeroSection = ({
               download
               aria-label="Download CV in PDF format"
               className="w-full sm:w-auto"
-              href="/new CV.pdf"
+              href="/Isha-resume.pdf"
             >
               <GlowButton
                 label="Download CV"
                 ariaLabel="Download CV in PDF format"
               />
             </Link>
-            <GlowButton
-              label="View Work"
-              ariaLabel="View Work"
-              onClick={() => scrollToWork({} as PressEvent)}
-            />
+            <Link
+              aria-label="View my projects"
+              className="w-full sm:w-auto"
+              href="/projects"
+            >
+              <GlowButton
+                label="View Work"
+                ariaLabel="View my projects"
+              />
+            </Link>
           </motion.div>
         </motion.div>
       </div>

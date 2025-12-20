@@ -42,9 +42,14 @@ export const Navigation = () => {
           whileHover={{ scale: 1.05 }}
         >
           <Link
-            className="font-bold text-inherit text-2xl bg-gradient-to-r from-primary-500 via-primary-400 to-secondary-500 bg-clip-text text-transparent hover:from-primary-400 hover:to-secondary-400 transition-all duration-300"
+            className="font-bold text-inherit text-3xl bg-gradient-to-r from-primary-400 via-secondary-400 to-primary-500 bg-clip-text text-transparent hover:from-primary-300 hover:via-secondary-300 hover:to-primary-400 transition-all duration-500 tracking-tight drop-shadow-[0_0_15px_rgba(99,102,241,0.3)]"
             href="/"
             onClick={() => setIsMenuOpen(false)}
+            style={{
+              fontFamily: "'Poppins', 'Inter', sans-serif",
+              fontWeight: 700,
+              letterSpacing: "-0.02em"
+            }}
           >
             Isha
           </Link>
@@ -94,9 +99,14 @@ export const Navigation = () => {
         {/* mobile: show brand and toggle on small screens */}
         <div className="sm:hidden flex items-center justify-between w-full px-4">
           <Link
-            className="font-bold text-inherit text-xl bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent"
+            className="font-bold text-inherit text-2xl bg-gradient-to-r from-primary-400 via-secondary-400 to-primary-500 bg-clip-text text-transparent tracking-tight drop-shadow-[0_0_12px_rgba(99,102,241,0.25)]"
             href="/"
             onClick={() => setIsMenuOpen(false)}
+            style={{
+              fontFamily: "'Poppins', 'Inter', sans-serif",
+              fontWeight: 700,
+              letterSpacing: "-0.02em"
+            }}
           >
             Isha
           </Link>
