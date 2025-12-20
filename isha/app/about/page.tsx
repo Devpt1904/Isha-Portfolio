@@ -19,6 +19,7 @@ export default function AboutPage() {
       />
 
       <JourneyTimeline education={education} experience={experience} />
+      <div className="mt-24" />
       <Skills tech={tech} />
     </section>
   );

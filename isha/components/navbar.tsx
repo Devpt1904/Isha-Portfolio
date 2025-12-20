@@ -27,7 +27,7 @@ export const Navigation = () => {
   return (
     <Navbar
       isBordered
-      className="bg-background/70 backdrop-blur-md border-b border-divider"
+      className="bg-background/80 backdrop-blur-xl border-b border-white/10 shadow-lg"
       isMenuOpen={isMenuOpen}
       maxWidth="xl"
       onMenuOpenChange={setIsMenuOpen}
@@ -39,9 +39,10 @@ export const Navigation = () => {
           animate={{ opacity: 1, x: 0 }}
           initial={{ opacity: 0, x: -20 }}
           transition={{ duration: 0.5 }}
+          whileHover={{ scale: 1.05 }}
         >
           <Link
-            className="font-bold text-inherit text-xl bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent"
+            className="font-bold text-inherit text-2xl bg-gradient-to-r from-primary-500 via-primary-400 to-secondary-500 bg-clip-text text-transparent hover:from-primary-400 hover:to-secondary-400 transition-all duration-300"
             href="/"
             onClick={() => setIsMenuOpen(false)}
           >
@@ -49,34 +50,51 @@ export const Navigation = () => {
           </Link>
         </motion.div>
 
-        <div className="mx-auto hidden sm:flex justify-center gap-8">
-          {menuItems.map((item, index) => (
-            <NavbarItem key={item.name}>
-              <motion.div
-                animate={{ opacity: 1, y: 0 }}
-                initial={{ opacity: 0, y: -10 }}
-                transition={{ delay: index * 0.08, duration: 0.45 }}
-              >
-                <Link
-                  className={`flex items-center gap-2 transition-colors px-2 py-1 ${
-                    pathname === item.href
-                      ? "text-primary-500 font-semibold"
-                      : "text-foreground hover:text-primary-500"
-                  }`}
-                  href={item.href}
+        <div className="mx-auto hidden sm:flex justify-center gap-2">
+          {menuItems.map((item, index) => {
+            const isActive = pathname === item.href;
+            return (
+              <NavbarItem key={item.name}>
+                <motion.div
+                  animate={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: -10 }}
+                  transition={{ delay: index * 0.08, duration: 0.45 }}
+                  whileHover={{ y: -2 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <Icon className="w-5 h-5 text-primary-500" icon={item.icon} />
-                  {item.name}
-                </Link>
-              </motion.div>
-            </NavbarItem>
-          ))}
+                  <Link
+                    className={`relative flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-300 group ${
+                      isActive
+                        ? "text-primary-500 font-semibold bg-primary-500/10"
+                        : "text-foreground/80 hover:text-primary-500 hover:bg-white/5"
+                    }`}
+                    href={item.href}
+                  >
+                    <Icon 
+                      className={`w-5 h-5 transition-transform duration-300 ${
+                        isActive ? "text-primary-500" : "text-foreground/60 group-hover:text-primary-500 group-hover:scale-110"
+                      }`} 
+                      icon={item.icon} 
+                    />
+                    <span className="font-medium">{item.name}</span>
+                    {isActive && (
+                      <motion.div
+                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary-500 to-secondary-500"
+                        layoutId="navbar-indicator"
+                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      />
+                    )}
+                  </Link>
+                </motion.div>
+              </NavbarItem>
+            );
+          })}
         </div>
 
         {/* mobile: show brand and toggle on small screens */}
         <div className="sm:hidden flex items-center justify-between w-full px-4">
           <Link
-            className="font-bold text-inherit text-lg bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent"
+            className="font-bold text-inherit text-xl bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent"
             href="/"
             onClick={() => setIsMenuOpen(false)}
           >
@@ -84,32 +102,42 @@ export const Navigation = () => {
           </Link>
           <NavbarMenuToggle
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-            className="sm:hidden"
+            className="sm:hidden text-foreground"
           />
         </div>
       </NavbarContent>
 
       {/* Mobile Menu */}
-      <NavbarMenu className="bg-background/80 backdrop-blur-lg pt-6 sm:hidden">
-        <div className="mx-auto max-w-lg space-y-4">
-          {menuItems.map((item, index) => (
-            <NavbarMenuItem key={item.name}>
-              <motion.div
-                animate={{ opacity: 1, x: 0 }}
-                initial={{ opacity: 0, x: -20 }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
-              >
-                <Link
-                  className="w-full flex items-center gap-3 py-3 px-4 rounded-medium hover:bg-content1 transition-colors"
-                  href={item.href}
-                  onClick={() => setIsMenuOpen(false)}
+      <NavbarMenu className="bg-background/95 backdrop-blur-xl pt-6 sm:hidden border-t border-white/10">
+        <div className="mx-auto max-w-lg space-y-2 px-4">
+          {menuItems.map((item, index) => {
+            const isActive = pathname === item.href;
+            return (
+              <NavbarMenuItem key={item.name}>
+                <motion.div
+                  animate={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, x: -20 }}
+                  transition={{ delay: index * 0.1, duration: 0.5 }}
                 >
-                  <Icon className="w-5 h-5 text-primary-500" icon={item.icon} />
-                  {item.name}
-                </Link>
-              </motion.div>
-            </NavbarMenuItem>
-          ))}
+                  <Link
+                    className={`w-full flex items-center gap-3 py-3 px-4 rounded-xl transition-all duration-300 ${
+                      isActive
+                        ? "bg-primary-500/15 text-primary-500 font-semibold shadow-lg shadow-primary-500/20"
+                        : "hover:bg-white/5 text-foreground/80 hover:text-primary-500"
+                    }`}
+                    href={item.href}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <Icon 
+                      className={`w-5 h-5 ${isActive ? "text-primary-500" : "text-foreground/60"}`} 
+                      icon={item.icon} 
+                    />
+                    <span className="font-medium">{item.name}</span>
+                  </Link>
+                </motion.div>
+              </NavbarMenuItem>
+            );
+          })}
         </div>
       </NavbarMenu>
     </Navbar>

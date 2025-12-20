@@ -96,47 +96,44 @@ export const DATA = {
       },
     ],
     technologies: {
-      frontend: {
+      tools: {
         description:
-          "I work with programming languages and tools that help me organize, query, and analyze data effectively.",
+          "Programming languages and tools I use for data analysis and development.",
         tools: [
           { name: "Python", icon: "logos:python" },
           { name: "SQL", icon: "logos:mysql-icon" },
           { name: "Excel", icon: "logos:microsoft-excel" },
           { name: "Tableau", icon: "simple-icons:tableau" },
+          { name: "Power BI", icon: "simple-icons:powerbi" },
+          { name: "Git", icon: "logos:git-icon" },
+          { name: "Jupyter", icon: "logos:jupyter" },
+          { name: "VS Code", icon: "logos:visual-studio-code" },
         ],
       },
-      backend: {
+      softSkills: {
         description:
-          "I enjoy designing backend logic, data workflows, and pipelines that keep information clean and usable.",
+          "Core competencies that help me collaborate effectively and deliver results.",
         tools: [
-          { name: "Databases", icon: "logos:mysql-icon" },
-          { name: "Data Cleaning", icon: "lucide:broom" },
-          { name: "Data Pipelines", icon: "lucide:workflow" },
-        ],
-      },
-      uiUx: {
-        description:
-          "I focus on making data and dashboards easy to understand for the people who use them.",
-        tools: [
-          { name: "Dashboards", icon: "lucide:layout-dashboard" },
-          { name: "Data Visualization", icon: "lucide:line-chart" },
-        ],
-      },
-      graphicDesign: {
-        description:
-          "I build a strong analytical base that supports my work with data.",
-        tools: [
-          { name: "Statistical Analysis", icon: "lucide:sigma" },
+          { name: "Problem Solving", icon: "lucide:lightbulb" },
           { name: "Analytical Thinking", icon: "lucide:brain" },
+          { name: "Communication", icon: "lucide:message-circle" },
+          { name: "Team Collaboration", icon: "lucide:users" },
+          { name: "Time Management", icon: "lucide:clock" },
+          { name: "Attention to Detail", icon: "lucide:eye" },
         ],
       },
-      motionDesign: {
+      dataAnalytics: {
         description:
-          "I keep learning through structured courses and certifications.",
+          "Data analytics, business intelligence, and visualization expertise.",
         tools: [
-          { name: "Google Data Analytics", icon: "simple-icons:google" },
-          { name: "NPTEL Courses", icon: "simple-icons:nptel" },
+          { name: "Data Analysis", icon: "lucide:bar-chart-3" },
+          { name: "Data Visualization", icon: "lucide:pie-chart" },
+          { name: "Statistical Analysis", icon: "lucide:sigma" },
+          { name: "Dashboards", icon: "lucide:layout-dashboard" },
+          { name: "Data Cleaning", icon: "lucide:broom" },
+          { name: "ETL Pipelines", icon: "lucide:workflow" },
+          { name: "Business Intelligence", icon: "lucide:trending-up" },
+          { name: "Reporting", icon: "lucide:file-text" },
         ],
       },
     },
@@ -248,9 +245,9 @@ export const DATA = {
     contact: ["Let’s", "Connect", "Collaborate"] as const,
   },
   navigation: [
-    { name: "Home", href: "#home", icon: "lucide:home" },
-    { name: "About", href: "#about", icon: "lucide:user" },
-    { name: "Projects", href: "#projects", icon: "lucide:folder-code" },
+    { name: "Home", href: "/", icon: "lucide:home" },
+    { name: "About", href: "/about", icon: "lucide:user" },
+    { name: "Projects", href: "/projects", icon: "lucide:folder-code" },
   ],
   footer: {
     name: "ISHA V SOLANKI",
