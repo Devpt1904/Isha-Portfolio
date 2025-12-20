@@ -5,12 +5,12 @@ import {
   ModalBody,
   ModalFooter,
   Button,
-  Avatar,
-  AvatarGroup,
-  Tooltip,
+  Chip,
   ScrollShadow,
+  Divider,
 } from "@heroui/react";
 import { Icon } from "@iconify/react";
+import { motion } from "framer-motion";
 
 import ImageGallery from "@/components/image-gallery";
 import { ProjectModalProps } from "@/components/projects/types";
@@ -25,86 +25,143 @@ export const ProjectModal = ({
   return (
     <Modal
       backdrop="blur"
-      className="border border-black/10 dark:border-white/10 bg-white/90 dark:bg-black/70 shadow-md dark:shadow-cyan-900/40 rounded-xl overflow-hidden transition-colors"
+      className="border border-white/10 bg-content1/95 backdrop-blur-xl shadow-2xl rounded-2xl overflow-hidden"
       isOpen={isOpen}
       scrollBehavior="inside"
-      size="xl"
+      size="3xl"
       onClose={onClose}
     >
       <ModalContent>
-        <ModalHeader className="text-xl font-bold text-primary-700 border-b  border-white/20">
-          {project.title}
+        <ModalHeader className="flex flex-col gap-2 px-6 pt-6 pb-4">
+          <div className="flex items-start justify-between gap-4">
+            <div className="flex-1">
+              <motion.h2
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-2xl font-bold text-foreground mb-2"
+              >
+                {project.title}
+              </motion.h2>
+              <Chip
+                size="sm"
+                variant="flat"
+                className="bg-primary-500/10 text-primary-500 border border-primary-500/20 font-semibold"
+              >
+                {project.category}
+              </Chip>
+            </div>
+            {(project.github || project.live) && (
+              <div className="flex gap-2">
+                {project.github && (
+                  <Button
+                    isIconOnly
+                    as="a"
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="View on GitHub"
+                    size="sm"
+                    variant="flat"
+                    className="bg-foreground/10 hover:bg-foreground/20"
+                  >
+                    <Icon icon="mdi:github" width={20} />
+                  </Button>
+                )}
+                {project.live && (
+                  <Button
+                    isIconOnly
+                    as="a"
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="View Live Project"
+                    size="sm"
+                    variant="flat"
+                    className="bg-primary-500/10 hover:bg-primary-500/20 text-primary-500"
+                  >
+                    <Icon icon="lucide:external-link" width={18} />
+                  </Button>
+                )}
+              </div>
+            )}
+          </div>
         </ModalHeader>
-        <ScrollShadow hideScrollBar size={60}>
-          <ModalBody>
+
+        <Divider className="bg-white/10" />
+
+        <ScrollShadow hideScrollBar size={60} className="max-h-[70vh]">
+          <ModalBody className="px-6 py-6 space-y-6">
+            {/* Gallery */}
             {project.gallery && project.gallery.length > 0 && (
-              <ImageGallery images={project.gallery} />
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.1 }}
+              >
+                <ImageGallery images={project.gallery} />
+              </motion.div>
             )}
 
-            <p className="text-sm text-primary-500 mb-3 font-medium uppercase tracking-wide">
-              {project.category}
-            </p>
+            {/* Description */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="space-y-3"
+            >
+              <h3 className="text-lg font-semibold text-foreground flex items-center gap-2">
+                <Icon icon="lucide:info" className="text-primary-500" width={20} />
+                Project Details
+              </h3>
+              <p className="text-foreground-600 leading-relaxed text-sm whitespace-pre-line">
+                {project.details}
+              </p>
+            </motion.div>
 
-            <div className="text-foreground-600 leading-relaxed mb-6 whitespace-pre-line">
-              {project.details}
-            </div>
-            {project.tech && (
-              <div className="mb-6">
-                <h4 className="font-semibold mb-6 text-foreground">
-                  Technologies Used:
-                </h4>
-                <AvatarGroup>
-                  {project.tech.map(({ name, icon }) => (
-                    <Tooltip key={name} content={name} showArrow={true}>
-                      <Avatar
-                        key={name}
-                        showFallback
-                        classNames={{
-                          base: "bg-transparent",
-                          icon: "text-foreground dark:text-foreground-dark",
-                        }}
-                        icon={<Icon icon={icon} width={25} />}
-                      />
-                    </Tooltip>
+            {/* Tech Stack */}
+            {project.tech && project.tech.length > 0 && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="space-y-3"
+              >
+                <h3 className="text-lg font-semibold text-foreground flex items-center gap-2">
+                  <Icon icon="lucide:code" className="text-primary-500" width={20} />
+                  Technologies Used
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {project.tech.map((tech, index) => (
+                    <motion.div
+                      key={tech.name}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.4 + index * 0.05 }}
+                    >
+                      <Chip
+                        size="md"
+                        variant="flat"
+                        className="bg-content2 hover:bg-content3 transition-colors cursor-default"
+                        startContent={<Icon icon={tech.icon} className="w-4 h-4" />}
+                      >
+                        {tech.name}
+                      </Chip>
+                    </motion.div>
                   ))}
-                </AvatarGroup>
-              </div>
+                </div>
+              </motion.div>
             )}
           </ModalBody>
         </ScrollShadow>
-        {(project.github || project.live) && (
-          <div className="flex justify-end mb-4 px-6 gap-3">
-            {project.github && (
-              <a
-                aria-label="View on GitHub"
-                className="text-foreground-500 hover:text-foreground transition"
-                href={project.github}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <Icon height={22} icon="mdi:github" width={22} />
-              </a>
-            )}
-            {project.live && (
-              <a
-                aria-label="View Live Project"
-                className="text-foreground-500 hover:text-foreground transition"
-                href={project.live}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <Icon height={22} icon="mdi:web" width={22} />
-              </a>
-            )}
-          </div>
-        )}
 
-        <ModalFooter className="flex flex-wrap gap-3 justify-end border-t border-white/20">
+        <Divider className="bg-white/10" />
+
+        <ModalFooter className="px-6 py-4">
           <Button
-            className="text-foreground-500"
-            color="danger"
+            color="primary"
             variant="light"
-            onClick={onClose}
+            onPress={onClose}
+            className="font-semibold"
           >
             Close
           </Button>

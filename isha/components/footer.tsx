@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 
 import { DATA } from "@/data";
+import { SendMessageButton } from "./send-message-button";
 
 export const Footer = () => {
   const { name, description, contact, socialLinks, services } = DATA.footer;
@@ -96,15 +97,11 @@ export const Footer = () => {
                     inputWrapper: "bg-background/50 border border-white/10",
                   }}
                 />
-                <Button
-                  type="submit"
-                  color="primary"
-                  size="lg"
-                  className="w-full font-semibold"
-                  isLoading={isSubmitting}
-                >
-                  Send Message
-                </Button>
+                <SendMessageButton 
+                  type="submit" 
+                  disabled={isSubmitting}
+                  isSent={isSubmitting}
+                />
               </form>
             </motion.div>
 
