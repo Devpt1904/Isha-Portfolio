@@ -2,6 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Mobile Optimizations */
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+  }
+  
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Prevent text size adjustment on mobile */
+  @media screen and (max-width: 768px) {
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+  }
+}
+
+/* Touch-friendly minimum tap targets */
+@layer components {
+  .tap-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
 .perspective-1000 {
   perspective: 1000px;
 }
@@ -33,14 +62,22 @@
   position: relative;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   width: 100%;
-  padding: 18px;
-  height: 56px;
+  padding: 16px;
+  min-height: 50px;
   font-family: "Inter", system-ui, sans-serif;
   font-style: normal;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: -0.2px;
   color: white;
+}
+
+@media (min-width: 640px) {
+  .send-message-button {
+    padding: 18px;
+    min-height: 56px;
+    font-size: 17px;
+  }
 }
 
 .send-message-button:hover {

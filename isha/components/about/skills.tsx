@@ -22,9 +22,9 @@ const getCategoryTitle = (category: string): string => {
 };
 
 const getGridCols = (category: string): string => {
-  if (category === "softSkills") return "grid-cols-2 sm:grid-cols-3 lg:grid-cols-5";
-  if (category === "dataAnalytics") return "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4";
-  return "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4";
+  if (category === "softSkills") return "grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5";
+  if (category === "dataAnalytics") return "grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4";
+  return "grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4";
 };
 
 export const Skills = ({ tech }: SkillsProps) => {
@@ -67,7 +67,7 @@ export const Skills = ({ tech }: SkillsProps) => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: isOpen ? 1 : 0 }}
                 transition={{ duration: 0.4, delay: 0.1 }}
-                className={`grid ${getGridCols(category)} gap-4`}
+                className={`grid ${getGridCols(category)} gap-2 sm:gap-4`}
               >
                 {tools.map((tool, index) => {
                   const hasUsage = 'usage' in tool && tool.usage;
@@ -84,17 +84,17 @@ export const Skills = ({ tech }: SkillsProps) => {
                       }}
                       className="group relative"
                     >
-                      <div className="relative h-full rounded-xl border border-white/20 bg-white/5 dark:bg-black/20 backdrop-blur-md p-5 shadow-lg transition-all duration-300 hover:border-primary-500/60 hover:bg-white/10 dark:hover:bg-black/30 hover:scale-105 hover:shadow-xl hover:shadow-primary-500/20">
-                        <div className="flex flex-col items-center text-center gap-3">
-                          <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-primary-500/20 to-secondary-500/20 backdrop-blur-sm border border-white/10 transition-all duration-300 group-hover:from-primary-500/30 group-hover:to-secondary-500/30 group-hover:border-primary-500/40 group-hover:shadow-lg group-hover:shadow-primary-500/20">
+                      <div className="relative h-full rounded-lg sm:rounded-xl border border-white/20 bg-white/5 dark:bg-black/20 backdrop-blur-md p-1 sm:p-4 md:p-5 shadow-lg transition-all duration-300 hover:border-primary-500/60 hover:bg-white/10 dark:hover:bg-black/30 hover:scale-105 hover:shadow-xl hover:shadow-primary-500/20 min-h-[60px] sm:min-h-[120px] flex items-center justify-center">
+                        <div className="flex flex-col items-center justify-center text-center gap-0.5 sm:gap-3">
+                          <div className="flex h-6 w-6 sm:h-12 sm:w-12 md:h-14 md:w-14 items-center justify-center rounded-lg sm:rounded-xl bg-gradient-to-br from-primary-500/20 to-secondary-500/20 backdrop-blur-sm border border-white/10 transition-all duration-300 group-hover:from-primary-500/30 group-hover:to-secondary-500/30 group-hover:border-primary-500/40 group-hover:shadow-lg group-hover:shadow-primary-500/20">
                             <Icon
                               className="text-foreground transition-transform group-hover:scale-110"
-                              height={32}
+                              height={14}
                               icon={tool.icon}
-                              width={32}
+                              width={14}
                             />
                           </div>
-                          <span className="text-sm font-medium text-foreground leading-tight">
+                          <span className="text-[8px] sm:text-sm font-medium text-foreground leading-tight">
                             {tool.name}
                           </span>
                           {hasUsage && (

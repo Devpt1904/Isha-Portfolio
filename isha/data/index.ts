@@ -142,11 +142,12 @@ export const DATA = {
         title: "Petstagram – A Social Initiative for Vets",
         description:
           "A social platform connecting vets and pet owners through structured posts and pet profiles.",
-        image: "https://img.heroui.chat/image/dashboard?w=600&h=400&u=1",
+        image: "/petstagram 1.jpg",
         gallery: [
-          "https://img.heroui.chat/image/dashboard?w=600&h=400&u=1",
-          "https://img.heroui.chat/image/dashboard?w=600&h=400&u=1-1",
-          "https://img.heroui.chat/image/dashboard?w=600&h=400&u=1-2",
+          "/petstagram 1.jpg",
+          "/petstagram 2.jpg",
+          "/petstagram 3.jpg",
+          "/petstagram 4.jpg",
         ],
         category: "Web & Backend",
         details:
@@ -164,10 +165,9 @@ export const DATA = {
         title: "Budget Dashboard (Google Sheets)",
         description:
           "An interactive budget dashboard that automates calculations and visualizes personal finance.",
-        image: "https://img.heroui.chat/image/dashboard?w=600&h=400&u=2",
+        image: "/Budget Dashboard cover.jpeg",
         gallery: [
-          "https://img.heroui.chat/image/dashboard?w=600&h=400&u=2",
-          "https://img.heroui.chat/image/dashboard?w=600&h=400&u=2-1",
+          "/Budget Dashboard.png",
         ],
         category: "Dashboards",
         details:
@@ -185,11 +185,9 @@ export const DATA = {
         title: "Interactive Data Dashboard (Tableau)",
         description:
           "Interactive Tableau dashboards built from CSV datasets with filters, KPIs, and charts.",
-        image: "https://img.heroui.chat/image/dashboard?w=600&h=400&u=3",
-        gallery: [
-          "https://img.heroui.chat/image/dashboard?w=600&h=400&u=3",
-          "https://img.heroui.chat/image/dashboard?w=600&h=400&u=3-1",
-        ],
+        image: "/Interactive Data Dashboard cover.jpeg",
+        gallery: [],
+        videoFile: "/Interactive data dashboard.mp4",
         category: "Dashboards",
         details:
           "Developed interactive dashboards in Tableau using CSV data, focusing on clear visual stories through charts, KPIs, filters, and dropdowns. This project helped me think about what matters to end users and how to present information so insights are easy to understand.",
@@ -206,11 +204,9 @@ export const DATA = {
         title: "Blood Donation Behavior Prediction (AutoML)",
         description:
           "Predictive modeling project using RFMTC segmentation and TPOT AutoML with Logistic Regression.",
-        image: "https://img.heroui.chat/image/dashboard?w=600&h=400&u=4",
-        gallery: [
-          "https://img.heroui.chat/image/dashboard?w=600&h=400&u=4",
-          "https://img.heroui.chat/image/dashboard?w=600&h=400&u=4-1",
-        ],
+        image: "/Blood Donation Behavior Prediction (AutoML).jpeg",
+        gallery: [],
+        pdfFile: "/Blood Donation Behavior Prediction (AutoML).pdf",
         category: "Machine Learning",
         details:
           "Explored donor behavior prediction using the RFMTC model for segmentation and TPOT AutoML with Logistic Regression, achieving an AUC of 0.785. I handled preprocessing and model optimization, which strengthened my understanding of end-to-end machine learning workflows.",

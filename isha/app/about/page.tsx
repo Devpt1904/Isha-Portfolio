@@ -9,7 +9,7 @@ export default function AboutPage() {
   const tech = DATA.about.technologies;
 
   return (
-    <section className="py-20 px-6 md:px-12 max-w-5xl mx-auto text-foreground">
+    <section className="py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 lg:px-12 max-w-5xl mx-auto text-foreground">
       <PageHeader texts={DATA.morphingTexts.about} />
       <ProfileCard
         description={profile.description}
@@ -19,7 +19,7 @@ export default function AboutPage() {
       />
 
       <JourneyTimeline education={education} experience={experience} />
-      <div className="mt-24" />
+      <div className="mt-16 sm:mt-20 md:mt-24" />
       <Skills tech={tech} />
     </section>
   );

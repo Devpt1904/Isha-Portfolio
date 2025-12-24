@@ -23,6 +23,12 @@ export const metadata: Metadata = {
     template: `%s | ${DATA.home.hero.name}`,
   },
   description: DATA.home.hero.subtitle,
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+    userScalable: true,
+  },
   openGraph: {
     title: {
       default: DATA.home.hero.name,

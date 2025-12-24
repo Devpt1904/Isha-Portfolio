@@ -4,15 +4,17 @@ type GlowButtonProps = {
   label: string;
   ariaLabel?: string;
   onClick?: () => void;
+  className?: string;
 };
 
 export const GlowButton: React.FC<GlowButtonProps> = ({
   label,
   ariaLabel,
   onClick,
+  className,
 }) => {
   return (
-    <div className="glow-button-wrapper">
+    <div className={`glow-button-wrapper ${className || ""}`}>
       <div>
         <svg style={{ position: "absolute", width: 0, height: 0 }}>
           <filter id="unopaq" width="300%" height="300%" x="-100%" y="-100%">

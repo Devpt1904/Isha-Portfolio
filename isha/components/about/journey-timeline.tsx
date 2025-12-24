@@ -147,7 +147,7 @@ export const JourneyTimeline = ({ education, experience }: JourneyTimelineProps)
 
         <div className="relative px-6 md:px-10 pb-24 min-h-[75vh]">
           {/* Center timeline rail */}
-          <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-primary-500/70 via-white/10 to-secondary-400/70" />
+          <div className="pointer-events-none absolute overflow-hidden md:z-0 z-[-10]  left-1/2 -translate-x-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-primary-500/70 via-white/10 to-secondary-400/70" />
           <span className="absolute left-1/2 -translate-x-1/2 top-0 h-3 w-3 rounded-full bg-primary-500 shadow-[0_0_0_8px_rgba(0,0,0,0.45)]" />
           <span className="absolute left-1/2 -translate-x-1/2 bottom-0 h-3 w-3 rounded-full bg-secondary-400 shadow-[0_0_0_8px_rgba(0,0,0,0.45)]" />
 
@@ -172,7 +172,7 @@ export const JourneyTimeline = ({ education, experience }: JourneyTimelineProps)
                 >
                   {/* Mobile (single column card) */}
                   <div className="md:hidden">
-                    <div className="rounded-2xl border border-white/15 bg-black/35 p-5">
+                    <div className="rounded-2xl border border-white/15 bg-black p-5 z-50">
                       <div className="flex items-center justify-between gap-3">
                         <span
                           className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm font-extrabold tracking-wider uppercase border drop-shadow-[0_1px_10px_rgba(0,0,0,0.75)] ${badgeBg}`}

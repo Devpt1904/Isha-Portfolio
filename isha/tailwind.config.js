@@ -29,6 +29,7 @@ export default {
 				},
 			},
 			screens: {
+				xs: "480px",
 				mdplus: "1040px",
 			}
 		},

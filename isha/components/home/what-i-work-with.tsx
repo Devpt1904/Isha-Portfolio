@@ -101,12 +101,12 @@ const cardVariants = {
 };
 
 export const WhatIWorkWith = () => (
-	<section className="py-20 bg-background" id="what-i-work-with">
-		<div className="max-w-5xl mx-auto px-4">
-			<h2 className="text-3xl md:text-4xl font-bold text-center mb-10">
+	<section className="py-10 sm:py-12 md:py-16 lg:py-20 bg-background" id="what-i-work-with">
+		<div className="max-w-5xl mx-auto px-4 sm:px-6">
+			<h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6 sm:mb-8 md:mb-10 px-2">
 				What I Work With
 			</h2>
-			<div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
+			<div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
 				{domains.map((domain, i) => (
 					<motion.div
 						key={domain.title}
@@ -115,7 +115,7 @@ export const WhatIWorkWith = () => (
 						whileInView="visible"
 						viewport={{ once: true, amount: 0.3 }}
 						variants={cardVariants}
-						className="group bg-background/80 border border-border rounded-2xl shadow-sm hover:shadow-lg p-7 flex flex-col items-center text-center
+						className="group bg-background/80 border border-border rounded-2xl shadow-sm hover:shadow-lg p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col items-center text-center
               hover:scale-[1.025] focus-within:scale-[1.025]
               outline-none
               hover:border-primary/60 focus-within:border-primary/60
@@ -128,10 +128,10 @@ export const WhatIWorkWith = () => (
 						aria-label={domain.title}
 					>
 						<div className="mb-2">{domain.icon}</div>
-						<h3 className="font-semibold text-lg mb-2 text-foreground">
+						<h3 className="font-semibold text-sm sm:text-base md:text-lg mb-1 sm:mb-2 text-foreground">
 							{domain.title}
 						</h3>
-						<p className="text-foreground-600 text-sm leading-relaxed">
+						<p className="text-foreground-600 text-xs sm:text-sm leading-relaxed">
 							{domain.description}
 						</p>
 					</motion.div>

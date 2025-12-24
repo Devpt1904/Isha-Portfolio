@@ -24,8 +24,6 @@ export const ProjectCard = memo(function ProjectCard({
   if (isMobile) {
     return (
       <Card
-        isPressable
-        onPress={onViewDetails}
         className="
           border border-white/10 bg-gradient-to-br from-content1/50 to-content1/30
           backdrop-blur-md shadow-lg hover:shadow-xl
@@ -35,12 +33,14 @@ export const ProjectCard = memo(function ProjectCard({
         radius="lg"
       >
         <CardBody className="p-0 flex flex-col">
-          <div className="relative w-full h-[200px] overflow-hidden">
+          <div className="relative w-full h-[180px] sm:h-[200px] overflow-hidden">
             <Image
               removeWrapper
               alt={project.title}
               className="absolute inset-0 w-full h-full object-cover"
-              classNames={{ img: "w-full h-full object-cover" }}
+              classNames={{ 
+                img: `w-full h-full object-cover ${project.id === 4 ? 'scale-150' : ''}` 
+              }}
               loading="lazy"
               src={project.image}
             />
@@ -56,11 +56,11 @@ export const ProjectCard = memo(function ProjectCard({
             </div>
           </div>
 
-          <div className="p-4 flex flex-col flex-grow">
-            <h3 className="text-lg font-bold mb-2 text-foreground">
+          <div className="p-3 sm:p-4 flex flex-col flex-grow">
+            <h3 className="text-base sm:text-lg font-bold mb-2 text-foreground line-clamp-2">
               {project.title}
             </h3>
-            <p className="text-foreground-600 text-sm leading-relaxed line-clamp-3 mb-3">
+            <p className="text-foreground-600 text-xs sm:text-sm leading-relaxed line-clamp-2 sm:line-clamp-3 mb-3">
               {project.description}
             </p>
             
@@ -86,10 +86,11 @@ export const ProjectCard = memo(function ProjectCard({
 
             <Button
               size="sm"
-              className="w-full bg-primary-500 text-white mt-auto"
+              className="w-full bg-primary-500 text-white mt-auto min-h-[40px]"
               endContent={<Icon icon="lucide:arrow-right" className="w-4 h-4" />}
+              onPress={onViewDetails}
             >
-              View Details
+              <span className="text-sm">View Details</span>
             </Button>
           </div>
         </CardBody>
@@ -132,7 +133,7 @@ export const ProjectCard = memo(function ProjectCard({
                   alt={project.title}
                   className="absolute inset-0 w-full h-full object-cover"
                   classNames={{
-                    img: "w-full h-full object-cover",
+                    img: `w-full h-full object-cover ${project.id === 4 ? 'scale-150' : ''}`,
                   }}
                   loading="lazy"
                   src={project.image}
