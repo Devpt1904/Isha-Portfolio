@@ -48,32 +48,34 @@ export const TestimonialsSection = () => {
           </p>
         </motion.div>
 
-        <div className="relative w-full max-w-2xl mx-auto">
+        <div className="relative w-full max-w-2xl mx-auto px-12 sm:px-0">
           {!isMobile && (
             <>
               <Button
                 isIconOnly
                 aria-label="Previous testimonial"
-                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 z-10"
+                className="absolute left-0 sm:-left-4 lg:-left-12 top-1/2 -translate-y-1/2 z-10 hidden sm:flex"
                 radius="full"
                 variant="flat"
+                size="sm"
                 onClick={() => handleNavigation(prevTestimonial)}
               >
                 <Icon
-                  className="w-5 h-5"
+                  className="w-4 h-4"
                   icon="heroicons:chevron-left-20-solid"
                 />
               </Button>
               <Button
                 isIconOnly
                 aria-label="Next testimonial"
-                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 z-10"
+                className="absolute right-0 sm:-right-4 lg:-right-12 top-1/2 -translate-y-1/2 z-10 hidden sm:flex"
                 radius="full"
                 variant="flat"
+                size="sm"
                 onClick={() => handleNavigation(nextTestimonial)}
               >
                 <Icon
-                  className="w-5 h-5"
+                  className="w-4 h-4"
                   icon="heroicons:chevron-right-20-solid"
                 />
               </Button>

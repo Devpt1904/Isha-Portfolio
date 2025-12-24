@@ -1,4 +1,4 @@
-import { memo, useState } from "react";
+import React, { memo, useState } from "react";
 import { Card, CardBody, Button, Image, Chip } from "@heroui/react";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
@@ -10,7 +10,94 @@ export const ProjectCard = memo(function ProjectCard({
   onViewDetails,
 }: ProjectCardProps) {
   const [isFlipped, setIsFlipped] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
+  // Detect mobile/tablet devices
+  React.useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // On mobile/tablet, show a simplified card instead of flip
+  if (isMobile) {
+    return (
+      <Card
+        isPressable
+        onPress={onViewDetails}
+        className="
+          border border-white/10 bg-gradient-to-br from-content1/50 to-content1/30
+          backdrop-blur-md shadow-lg hover:shadow-xl
+          rounded-2xl overflow-hidden w-full
+          transition-all duration-300
+        "
+        radius="lg"
+      >
+        <CardBody className="p-0 flex flex-col">
+          <div className="relative w-full h-[200px] overflow-hidden">
+            <Image
+              removeWrapper
+              alt={project.title}
+              className="absolute inset-0 w-full h-full object-cover"
+              classNames={{ img: "w-full h-full object-cover" }}
+              loading="lazy"
+              src={project.image}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+            <div className="absolute bottom-2 left-2 right-2 z-10">
+              <Chip
+                size="sm"
+                variant="flat"
+                className="bg-black/70 border border-white/20 text-white font-semibold backdrop-blur-md"
+              >
+                {project.category}
+              </Chip>
+            </div>
+          </div>
+
+          <div className="p-4 flex flex-col flex-grow">
+            <h3 className="text-lg font-bold mb-2 text-foreground">
+              {project.title}
+            </h3>
+            <p className="text-foreground-600 text-sm leading-relaxed line-clamp-3 mb-3">
+              {project.description}
+            </p>
+            
+            {project.tech && project.tech.length > 0 && (
+              <div className="flex flex-wrap gap-1.5 mb-3">
+                {project.tech.slice(0, 3).map((tech, index) => (
+                  <Chip
+                    key={index}
+                    size="sm"
+                    variant="flat"
+                    className="bg-primary-500/10 text-primary-500 text-xs"
+                  >
+                    {tech.name}
+                  </Chip>
+                ))}
+                {project.tech.length > 3 && (
+                  <Chip size="sm" variant="flat" className="bg-content1/50 text-foreground-600 text-xs">
+                    +{project.tech.length - 3}
+                  </Chip>
+                )}
+              </div>
+            )}
+
+            <Button
+              size="sm"
+              className="w-full bg-primary-500 text-white mt-auto"
+              endContent={<Icon icon="lucide:arrow-right" className="w-4 h-4" />}
+            >
+              View Details
+            </Button>
+          </div>
+        </CardBody>
+      </Card>
+    );
+  }
+
+  // Desktop: flip card animation
   return (
     <div 
       className="relative w-full h-[420px] perspective-1000"

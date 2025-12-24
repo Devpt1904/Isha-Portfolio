@@ -31,6 +31,7 @@ export interface ExperienceItem extends EducationItem {}
 export interface TechItem {
   readonly name: string;
   readonly icon: string;
+  readonly usage?: string;
 }
 
 export interface TechCategory {

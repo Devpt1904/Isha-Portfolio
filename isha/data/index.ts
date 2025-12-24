@@ -48,8 +48,7 @@ export const DATA = {
     profile: {
       name: "ISHA V SOLANKI",
       title: "Computer Science & Engineering Student",
-      image:
-        "https://img.heroui.chat/image/avatar?w=300&h=300&u=isha",
+      image: "/isha pfp.jpeg",
       description: [
         "I'm a B.Tech Computer Science and Engineering student at Parul University (2022–2026), based in Vadodara, Gujarat. I enjoy taking messy data and turning it into something structured, visual, and genuinely useful.",
         "My interests sit at the intersection of data, business, finance, and technology. I’ve worked on dashboards, backend logic, and data operations that support both academic and professional contexts.",
@@ -98,42 +97,37 @@ export const DATA = {
     technologies: {
       tools: {
         description:
-          "Programming languages and tools I use for data analysis and development.",
+          "Core tools I use for data analysis and business-focused development",
         tools: [
           { name: "Python", icon: "logos:python" },
-          { name: "SQL", icon: "logos:mysql-icon" },
-          { name: "Excel", icon: "logos:microsoft-excel" },
-          { name: "Tableau", icon: "simple-icons:tableau" },
-          { name: "Power BI", icon: "simple-icons:powerbi" },
+          { name: "SQL", icon: "logos:postgresql" },
+          { name: "Excel / Google Sheets", icon: "vscode-icons:file-type-excel" },
+          { name: "Tableau", icon: "logos:tableau-icon" },
+          { name: "Power BI", icon: "logos:microsoft-power-bi" },
           { name: "Git", icon: "logos:git-icon" },
-          { name: "Jupyter", icon: "logos:jupyter" },
+          { name: "Jupyter Notebook", icon: "logos:jupyter" },
           { name: "VS Code", icon: "logos:visual-studio-code" },
         ],
       },
       softSkills: {
         description:
-          "Core competencies that help me collaborate effectively and deliver results.",
+          "Skills developed through coordination, collaboration, and professional engagement",
         tools: [
-          { name: "Problem Solving", icon: "lucide:lightbulb" },
-          { name: "Analytical Thinking", icon: "lucide:brain" },
-          { name: "Communication", icon: "lucide:message-circle" },
-          { name: "Team Collaboration", icon: "lucide:users" },
-          { name: "Time Management", icon: "lucide:clock" },
-          { name: "Attention to Detail", icon: "lucide:eye" },
+          { name: "Communication", icon: "fluent:people-chat-20-filled" },
+          { name: "Team Coordination", icon: "fluent:people-team-20-filled" },
+          { name: "Stakeholder Collaboration", icon: "fluent:handshake-20-filled" },
+          { name: "Documentation & Reporting", icon: "fluent:document-text-20-filled" },
+          { name: "Event Coordination", icon: "fluent:calendar-checkmark-20-filled" },
         ],
       },
       dataAnalytics: {
         description:
-          "Data analytics, business intelligence, and visualization expertise.",
+          "Data analytics, visualization, and business insight capabilities",
         tools: [
-          { name: "Data Analysis", icon: "lucide:bar-chart-3" },
-          { name: "Data Visualization", icon: "lucide:pie-chart" },
-          { name: "Statistical Analysis", icon: "lucide:sigma" },
-          { name: "Dashboards", icon: "lucide:layout-dashboard" },
-          { name: "Data Cleaning", icon: "lucide:broom" },
-          { name: "ETL Pipelines", icon: "lucide:workflow" },
-          { name: "Business Intelligence", icon: "lucide:trending-up" },
-          { name: "Reporting", icon: "lucide:file-text" },
+          { name: "Data Cleaning & Preprocessing", icon: "fluent:data-funnel-20-filled", usage: "Ensuring data quality and consistency" },
+          { name: "Dashboard Design", icon: "fluent:grid-kanban-20-filled", usage: "Creating intuitive visual interfaces" },
+          { name: "Data Visualization", icon: "fluent:data-pie-20-filled", usage: "Transforming data into clear insights" },
+          { name: "Business Insights & Reporting", icon: "fluent:chart-multiple-20-filled", usage: "Delivering actionable recommendations" },
         ],
       },
     },

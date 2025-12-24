@@ -22,9 +22,9 @@ export const ProfileCard = memo(function ProfileCard({
       className="w-full max-w-6xl mx-auto mb-12"
     >
       <Card className="relative w-full p-0 md:p-0 rounded-2xl dark:shadow-neutral-700 shadow-md overflow-hidden bg-gradient-to-r from-white/95 via-white/92 to-white/85 dark:from-black/70 dark:via-black/55 dark:to-black/40 backdrop-blur-sm">
-        <div className="flex flex-col mdplus:flex-row items-center md:items-start gap-8">
+        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-6 lg:gap-8">
           {/* Left image card */}
-          <div className="w-full md:w-[300px] relative h-[300px]">
+          <div className="w-full sm:w-[280px] lg:w-[300px] relative h-[280px] sm:h-[300px] mt-4 lg:mt-0">
             <Card isFooterBlurred className="w-full h-full">
               <Image
                 alt="Profile background"
@@ -41,7 +41,7 @@ export const ProfileCard = memo(function ProfileCard({
           </div>
 
           {/* Right Description */}
-          <div className="text-muted-foreground text-sm leading-relaxed max-w-2xl px-6 py-4">
+          <div className="text-muted-foreground text-sm leading-relaxed max-w-2xl px-4 sm:px-6 py-4 pb-6">
             {description.map((paragraph, index) => (
               <p key={index} className="mb-4">
                 <SplittingText
