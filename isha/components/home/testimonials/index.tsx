@@ -23,11 +23,12 @@ export const TestimonialsSection = () => {
   } = useTestimonials(items);
 
   const isMobile = useIsMobile();
+  
   if (!items.length) {
     return null;
   }
 
-  const currentTestimonial = items[currentIndex] || items[0];
+  const currentTestimonial = items[currentIndex] as typeof items[number];
 
   return (
     <section className="py-20 bg-background bg-gradient-to-b from-background to-content2">

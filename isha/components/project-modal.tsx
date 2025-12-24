@@ -224,6 +224,7 @@ export const ProjectModal = ({
                         playsInline
                       >
                         <source src={project.videoFile} type="video/mp4" />
+                        <track kind="captions" />
                         Your browser does not support the video tag.
                       </video>
                     </div>

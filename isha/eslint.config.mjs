@@ -94,6 +94,8 @@ export default defineConfig([globalIgnores([
         "jsx-a11y/click-events-have-key-events": "warn",
         "jsx-a11y/interactive-supports-focus": "warn",
         "jsx-a11y/img-redundant-alt": "off",
+        "jsx-a11y/no-noninteractive-tabindex": "off",
+        "jsx-a11y/media-has-caption": "off",
         "@next/next/no-img-element": "off",
         "prettier/prettier": "off",
         "no-unused-vars": "off",

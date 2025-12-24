@@ -91,10 +91,10 @@ function restAfterFirstSentence(text: string, first: string) {
 
 export const JourneyTimeline = ({ education, experience }: JourneyTimelineProps) => {
   const events: TimelineEvent[] = [
-    ...education.map((item) => {
+    ...education.map((item): TimelineEvent => {
       const subtitle = firstSentence(item.description);
       return {
-        kind: "education",
+        kind: "education" as TimelineKind,
         title: item.title,
         dateLabel: item.date,
         subtitle,
@@ -102,10 +102,10 @@ export const JourneyTimeline = ({ education, experience }: JourneyTimelineProps)
         sortKey: parseStartSortKey(item.date),
       };
     }),
-    ...experience.map((item) => {
+    ...experience.map((item): TimelineEvent => {
       const org = orgFromDescription(item.description);
       return {
-        kind: "experience",
+        kind: "experience" as TimelineKind,
         title: item.title,
         dateLabel: item.date,
         subtitle: org || undefined,

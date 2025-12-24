@@ -41,7 +41,13 @@ export const DATA = {
       sectionTitle: "Testimonials",
       sectionDescription:
         "This space will highlight feedback and experiences from people I work with as I grow in my career.",
-      items: [],
+      items: [] as Array<{
+        id: number;
+        name: string;
+        role: string;
+        content: string;
+        avatar: string;
+      }>,
     },
   },
   about: {

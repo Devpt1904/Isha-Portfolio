@@ -148,7 +148,6 @@ function ExperienceCard({ exp }: { exp: Experience }) {
         hover:ring-2 hover:ring-primary/10 focus-within:ring-2 focus-within:ring-primary/10
         hover:-translate-y-1
         "
-      tabIndex={0}
       aria-label={exp.role}
     >
       <div className="text-xs text-foreground-500 mb-1">{exp.date}</div>

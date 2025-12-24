@@ -98,7 +98,6 @@ export const Footer = () => {
                   }}
                 />
                 <SendMessageButton 
-                  type="submit" 
                   disabled={isSubmitting}
                   isSent={isSubmitting}
                 />
