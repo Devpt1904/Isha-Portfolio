@@ -8,6 +8,9 @@ import { useState } from "react";
 import { DATA } from "@/data";
 import { SendMessageButton } from "./send-message-button";
 
+const WEB3_FORMS_URL = "https://api.web3forms.com/submit";
+const WEB3_FORMS_ACCESS_KEY = "229c4f73-4986-43ff-a24a-eea146046be7";
+
 export const Footer = () => {
   const { name, description, contact, socialLinks, services } = DATA.footer;
   const [formData, setFormData] = useState({
@@ -16,15 +19,51 @@ export const Footer = () => {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formStatus, setFormStatus] = useState<{
+    type: "success" | "error" | null;
+    message: string;
+  }>({ type: null, message: "" });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Add your form submission logic here
-    setTimeout(() => {
+    setFormStatus({ type: null, message: "" });
+
+    try {
+      const submitData = new FormData();
+      submitData.append("access_key", WEB3_FORMS_ACCESS_KEY);
+      submitData.append("name", formData.name);
+      submitData.append("email", formData.email);
+      submitData.append("subject", "New Contact Request");
+      submitData.append("message", formData.message);
+
+      const response = await fetch(WEB3_FORMS_URL, {
+        method: "POST",
+        body: submitData,
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setFormStatus({
+          type: "success",
+          message: "Your message has been sent successfully!",
+        });
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        setFormStatus({
+          type: "error",
+          message: result.message || "Failed to send message. Try again later.",
+        });
+      }
+    } catch (err) {
+      setFormStatus({
+        type: "error",
+        message: "Something went wrong. Please try again later.",
+      });
+    } finally {
       setIsSubmitting(false);
-      setFormData({ name: "", email: "", message: "" });
-    }, 1000);
+    }
   };
 
   return (
@@ -97,6 +136,21 @@ export const Footer = () => {
                     inputWrapper: "bg-background/50 border border-white/10",
                   }}
                 />
+                
+                {formStatus.type && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className={`p-3 rounded-lg ${
+                      formStatus.type === "success"
+                        ? "bg-success-50 dark:bg-success-900/20 text-success-700 dark:text-success-400"
+                        : "bg-danger-50 dark:bg-danger-900/20 text-danger-700 dark:text-danger-400"
+                    }`}
+                  >
+                    <p className="text-sm">{formStatus.message}</p>
+                  </motion.div>
+                )}
+
                 <SendMessageButton 
                   disabled={isSubmitting}
                   isSent={isSubmitting}
