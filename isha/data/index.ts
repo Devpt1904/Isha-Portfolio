@@ -81,7 +81,7 @@ export const DATA = {
         date: "2020",
         icon: "mdi:school-outline",
         description:
-          "Delhi Public School, Vadodara. Built strong academic fundamentals and participated in activities that strengthened my analytical and communication skills.",
+          "Delhi Public School - Harni , Vadodara. Built strong academic fundamentals and participated in activities that strengthened my analytical and communication skills.",
       },
     ],
     experience: [

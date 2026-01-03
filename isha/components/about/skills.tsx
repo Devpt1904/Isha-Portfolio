@@ -86,12 +86,10 @@ export const Skills = ({ tech }: SkillsProps) => {
                     >
                       <div className="relative h-full rounded-lg sm:rounded-xl border border-white/20 bg-white/5 dark:bg-black/20 backdrop-blur-md p-1 sm:p-4 md:p-5 shadow-lg transition-all duration-300 hover:border-primary-500/60 hover:bg-white/10 dark:hover:bg-black/30 hover:scale-105 hover:shadow-xl hover:shadow-primary-500/20 min-h-[60px] sm:min-h-[120px] flex items-center justify-center">
                         <div className="flex flex-col items-center justify-center text-center gap-0.5 sm:gap-3">
-                          <div className="flex h-6 w-6 sm:h-12 sm:w-12 md:h-14 md:w-14 items-center justify-center rounded-lg sm:rounded-xl bg-gradient-to-br from-primary-500/20 to-secondary-500/20 backdrop-blur-sm border border-white/10 transition-all duration-300 group-hover:from-primary-500/30 group-hover:to-secondary-500/30 group-hover:border-primary-500/40 group-hover:shadow-lg group-hover:shadow-primary-500/20">
+                          <div className="flex h-6 w-6 sm:h-12 sm:w-12 md:h-14 md:w-14 lg:h-16 lg:w-16 items-center justify-center rounded-lg sm:rounded-xl bg-gradient-to-br from-primary-500/20 to-secondary-500/20 backdrop-blur-sm border border-white/10 transition-all duration-300 group-hover:from-primary-500/30 group-hover:to-secondary-500/30 group-hover:border-primary-500/40 group-hover:shadow-lg group-hover:shadow-primary-500/20">
                             <Icon
-                              className="text-foreground transition-transform group-hover:scale-110"
-                              height={14}
+                              className="text-foreground transition-transform group-hover:scale-110 w-[14px] h-[14px] sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8"
                               icon={tool.icon}
-                              width={14}
                             />
                           </div>
                           <span className="text-[8px] sm:text-sm font-medium text-foreground leading-tight">
