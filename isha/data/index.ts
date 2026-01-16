@@ -86,6 +86,13 @@ export const DATA = {
     ],
     experience: [
       {
+        title: "Management Information System (MIS) Intern",
+        date: "Dec 2025 - Present",
+        icon: "mdi:briefcase-outline",
+        description:
+          "Kanan.co, Vadodara. Verified and maintained country-wise target sheets, aligning counsellor targets with assigned data. Performed data mining and validation for the My Career Mentor platform. Calculated counsellor incentives using Google Sheets with Pivot Tables and formulas. Utilized filters and data organization techniques to streamline MIS operations, reduce errors, and improve data accessibility.",
+      },
+      {
         title: "Data Operation and Management Intern",
         date: "May 2025 - June 2025",
         icon: "mdi:briefcase",
