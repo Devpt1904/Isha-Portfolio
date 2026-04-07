@@ -220,7 +220,7 @@ export const DATA = {
         title: "Instagram Performance Insights Dashboard",
         description:
           "An advanced Looker Studio dashboard focusing on content effectiveness, virality, and engagement patterns to understand the 'why' behind Instagram performance.",
-        image: "/instagram-performance.png",
+        image: "/instagram-performance.jpeg",
         gallery: [],
         pdfFile: "/instagram-performance.pdf",
         category: "Dashboards",
@@ -239,7 +239,7 @@ export const DATA = {
         title: "Sales Performance Dashboard",
         description:
           "An end-to-end data analytics project transforming raw sales data into actionable business insights using Google Sheets.",
-        image: "/sales-dashboard.png",
+        image: "/sales-dashboard.jpeg",
         gallery: [],
         pdfFile: "/sales-dashboard.pdf",
         category: "Dashboards",

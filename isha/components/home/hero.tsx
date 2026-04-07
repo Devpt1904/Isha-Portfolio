@@ -64,18 +64,18 @@ export const HeroSection = ({
             initial={{ opacity: 0, y: 20 }}
             transition={{ delay: 0.6, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
-            <Link
-              download
+            <a
+              download="Isha_Solanki_Resume.pdf"
               aria-label="Download CV in PDF format"
-              className="flex-1 sm:flex-initial max-w-[160px] sm:max-w-none"
-              href="/Isha-resume.pdf"
+              className="flex-1 sm:flex-initial max-w-[160px] sm:max-w-none block hover:opacity-80 transition-opacity"
+              href="/Isha_resume.pdf"
             >
               <GlowButton
                 label="Download CV"
                 ariaLabel="Download CV in PDF format"
                 className="scale-[0.85] sm:scale-100"
               />
-            </Link>
+            </a>
             <Link
               aria-label="View my projects"
               className="flex-1 sm:flex-initial max-w-[160px] sm:max-w-none"
