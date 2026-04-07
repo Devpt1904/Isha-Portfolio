@@ -39,7 +39,7 @@ export const ProjectCard = memo(function ProjectCard({
               alt={project.title}
               className="absolute inset-0 w-full h-full object-cover"
               classNames={{ 
-                img: `w-full h-full object-cover ${project.id === 4 ? 'scale-150' : ''}` 
+                img: "w-full h-full object-cover" 
               }}
               loading="lazy"
               src={project.image}
@@ -133,7 +133,7 @@ export const ProjectCard = memo(function ProjectCard({
                   alt={project.title}
                   className="absolute inset-0 w-full h-full object-cover"
                   classNames={{
-                    img: `w-full h-full object-cover ${project.id === 4 ? 'scale-150' : ''}`,
+                    img: "w-full h-full object-cover",
                   }}
                   loading="lazy"
                   src={project.image}
